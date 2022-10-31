@@ -1,0 +1,51 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
+#maincontainer{
+  display: flex;
+  width: 99%; 
+  height: 80vh;
+  border: 1px solid blue;
+}
+
+/* 选择器的div定义*/
+div#selector{
+  width: 20%;
+  height: 90%;
+  border: 1px solid red;
+}
+/*选择器的div定义 */
+div#typeselector{
+  display: inline-flex;
+  border-radius: 5px;
+  border: 1px grey solid;
+  margin-top: 50%;
+}
+
+/*选择器定义-not selected*/
+a.timetype_notselected{
+  margin: 0px;
+  text-decoration: none;
+  background-color: #dfdfdf;
+}
+/*选择器定义- selected*/
+a.timetype_selected{
+  margin: 0px;
+  text-decoration: none;
+  background-color: grey;
+}
+
+a.timetype_notselected:hover{
+  background-color: grey;
+}
+a.timetype_notselected:active{
+  background-color: green;
+}
+
+
+#datacanvas {
+  width: 80%;
+  height: 90%;
+  border: 1px solid black;
+}

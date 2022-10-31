@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      div {
+        height: 50vh;
+        width: 50vw;
+        border: 1px solid red;
+        padding: 1px;
+      }
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+
+  <body>
+    <div>
+    <canvas id="testchart"></canvas>
+    </div>
+
+    <script>
+      function func1(){
+        const labels = [
+          "一月",
+          "二月",
+          "三月",
+          "四月",
+          "五月",
+        ];
+        const data = {
+          labels: labels,
+          datasets: [
+            {
+              label: "一月份销售总额",
+              backgroundColor: "rgb(255, 99, 132)",
+              borderColor: "rgb(255, 99, 132)",
+              data: [1,2,3,4,5]
+            },
+          ],
+        };
+  
+        const config = {
+          type: "line",
+          data: data,
+          options: {},
+        };
+        const myChart = new Chart(document.getElementById("testchart"), config);
+      }
+    </script>
+    <script>
+      function func2(){
+        const labels = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+        ];
+      
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+            cubicInterpolationMode: 'monotone',
+          }]
+        };
+      
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+      
+        const myChart = new Chart(
+          document.getElementById('testchart'),
+          config
+        );
+      
+      }
+    </script>
+    <script>
+      function func3(){
+        const config = {
+            type: 'line',
+            data: {
+              datasets: [{
+              data: [{x: 0, y: 0}, {x: 5, y: 5}, {x: 10, y: 10}]
+              }],
+              labels: [0, 5, 10]
+            }
+        }
+        const myChart = new Chart(
+          document.getElementById('testchart'),
+          config
+        );
+
+    }
+    </script>
+
+    <button onclick="func2();">显示图表</button>
+  </body>
+</html>
