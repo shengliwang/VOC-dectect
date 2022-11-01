@@ -8,6 +8,7 @@ https://docs.webix.com/api__link__ui.tree_ondblclick_config.html
 
 // 初始化画布
 let myChart = null;
+let chartStyle='line';
 
 // 初始化导航树
 const baseUrl = "./data";
@@ -23,19 +24,47 @@ function updateChart(data){
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
               data: data.dataY[0],
+              tension: 0.2,
           },
           {
               label: data.descriptions[1],
               backgroundColor: "#36a2eb",
               borderColor: "#36a2eb",
               data: data.dataY[1],
+              tension: 0.2,
           },
       ],
   };
   config = {
-      type: "line",
+      type: chartStyle,
       data: chartdata,
-      options: {}
+      responsive: true,
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: data.label,
+          },
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: "单位: " + data.xUnit,
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: data.yUnit,
+            },
+            suggestedMin: 0,
+            suggestedMax: 7
+          }
+        },
+      }
   };
 
   if (myChart != null && myChart instanceof Chart)
@@ -104,6 +133,8 @@ function initTree(base_url){
         && this.status == 200)
       {
         treeAddNode("root", base_url, JSON.parse(this.responseText));
+        /*初始化默认的图表（第一个）*/
+        updateChart(JSON.parse(this.responseText));
       } 
     };
     httpRequest.open("GET", url, true);
@@ -148,3 +179,21 @@ tree.attachEvent("onItemClick", function(id) {
   httpRequest.open("GET", url, true);
   httpRequest.send();  
 });
+
+
+/*复选框功能*/
+function inputBoxContentChangeCallBack()
+{
+  let elements = document.querySelectorAll('[name="charttype"]');
+
+  for(i =0; i < elements.length; ++i)
+  {
+    if (elements[i].checked){
+      chartStyle = elements[i].value;
+    }
+  }
+  myChart.type = chartStyle;
+  // myChart.update();
+  // myChart.render();
+  // console.log(myChart)
+}
