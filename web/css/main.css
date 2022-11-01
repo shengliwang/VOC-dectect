@@ -1,0 +1,53 @@
+/* * {
+    border: 1px solid black;
+} */
+
+body{
+    margin: 2px;
+    padding: 0px;
+}
+
+#maincontainer{
+    display: flex;
+    width: 99vw;
+    height: 90vh;
+    border: 1px solid black;
+}
+
+#treecontainer{
+    margin:1px;
+    width: 30%;
+    height: 90%;
+    border: 1px solid red;
+}
+
+#canvascontainer{
+    margin:1px;
+    width: 80%;
+    height: 90%;
+    border: 1px solid blue;
+}
+
+div #tree {
+    height: 100%;
+    width: 100%;
+}
+
+.filestyle{
+    user-select: none;
+    color: green;
+}
+
+.filestyle:hover{
+    cursor: pointer;
+}
+
+.dirstyle{
+    user-select: none;
+    color: #1a73e8;
+}
+
+.dirstyle:hover{
+    color: white;
+    background-color: #1a73e8;
+}
