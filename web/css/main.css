@@ -40,6 +40,11 @@ div #tree {
 
 .filestyle:hover{
     cursor: pointer;
+    background-color: gainsboro;
+}
+
+.filestyle:active{
+    background-color: grey;
 }
 
 .dirstyle{
